@@ -40,3 +40,11 @@ SolCVaRMinCon <- optimize.portfolio(R = R,
 WCVaRMinCon <- SolCVaRMinCon$weights
 CVaRMinCon <- ES(R, weights = WCVaRMinCon, p = 0.95,
                  portfolio_method = "component")
+## GMV Portfolio
+WGMV <- Weights(PGMV(R, percentage = FALSE))
+CVaRGMV <- ES(R, weights = WGMV, p = 0.95,
+              portfolio_method = "component")
+## ERC Portfolio
+WERC <- Weights(PERC(cov(R), percentage = FALSE))
+CVaRERC <- ES(R, weights = WERC, p = 0.95,
+              portfolio_method = "component")

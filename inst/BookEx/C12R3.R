@@ -12,7 +12,7 @@ GMV <- minvariancePortfolio(data = Rets, spec = gmvspec,
                             constraints = "LongOnly")
 GMVret <- timeSeries(Rets %*% getWeights(GMV),
                      charvec = time(Rets))
-GMVDD <- Drawdowns(GMVret)
+GMVDD <- PerformanceAnalytics:::Drawdowns(GMVret)
 ## Plot of draw downs for GMV
 ylims <- c(-6, 0)
 plot(GMVDD * 100, xlab = "", ylab = "Draw Downs (percentage)",

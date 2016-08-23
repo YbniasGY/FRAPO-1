@@ -1,10 +1,10 @@
 ## Prior distribution
 ## Fitting of skewed Student's t distribution 
 MSTfit <- mvFit(R, method = "st")
-mu <- c(MSTfit@fit[["beta"]])
-S <- MSTfit@fit[["Omega"]]
-skew <- c(MSTfit@fit[["alpha"]])
-df <- MSTfit@fit[["df"]]
+mu <- c(MSTfit@fit$estimated[["beta"]])
+S <- MSTfit@fit$estimated[["Omega"]]
+skew <- c(MSTfit@fit$estimated[["alpha"]])
+df <- MSTfit@fit$estimated[["nu"]]
 CopPrior <- mvdistribution("mvst", dim = NAssets, mu = mu,
                            Omega = S, alpha = skew, df = df)
 ## Pick matrix and view distributions for last forecast

@@ -1,5 +1,5 @@
 library(fExtremes)
-library(fEcofin)
+library(fBasics)
 data(nyse)
 NYSELevel <- timeSeries(nyse[, 2],
                         charvec = as.character(nyse[, 1]))

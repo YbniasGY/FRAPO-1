@@ -9,6 +9,6 @@ help(package = FRAPO)
 ## Showing the listing of R code examples
 listEx()
 ## Returning the content of this example
-showEx("Part1Chapter2Ex1")
+showEx("C3R1")
 ## Executing this script
-runEx("Part1Chapter2Ex1", echo = TRUE)
+runEx("C3R1", echo = TRUE)

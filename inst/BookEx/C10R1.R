@@ -21,6 +21,6 @@ length(Lobj) <- 1000
 ## Setting a seed
 set.seed(12345)
 ## Generating random samples
-rNcopMargN <- lapply(Lobj, function(x) rmvdc(NcopMargN, 240))
-rNcopMargT <- lapply(Lobj, function(x) rmvdc(NcopMargT, 240))
-rTcopMargT <- lapply(Lobj, function(x) rmvdc(TcopMargT, 240))
+rNcopMargN <- lapply(Lobj, function(x) rMvdc(240, NcopMargN))
+rNcopMargT <- lapply(Lobj, function(x) rMvdc(240, NcopMargT))
+rTcopMargT <- lapply(Lobj, function(x) rMvdc(240, TcopMargT))

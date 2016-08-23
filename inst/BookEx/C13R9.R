@@ -1,6 +1,7 @@
 ## Defining portfolio specifications
 SSTPrior <- function(x, spec = NULL, ...){
-  list(mu = c(MSTfit@fit$beta), Sigma = MSTfit@fit$Omega)
+  list(mu = c(MSTfit@fit$estimate[["beta"]]),
+       Sigma = MSTfit@fit$estimate[["Omega"]])
 }
 BlCopPost <- function(x, spec = NULL, ...){
   Sim <- CopPost@posteriorSims

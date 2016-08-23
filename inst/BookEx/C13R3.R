@@ -1,4 +1,5 @@
 library(BLCOP)
+library(fCopulae)
 library(fPortfolio)
 ## Computing returns
 R <- (AssetsM / lag(AssetsM, k = -1) -1.0) * 100

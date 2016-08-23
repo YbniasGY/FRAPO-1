@@ -15,19 +15,17 @@ LLCG <- function(params, x, copC, copG){
   slot(copC, "parameters") <- params[1]
   slot(copG, "parameters") <- params[2]
   pi <- params[3]
-  ldens <- log(pi * dCopula(x, copC) + (1 - pi) *
-                 dCopula(x, copG))
-  if(any(is.nan(ldens))){
-    ldens[which(is.nan(ldens))] <- 0
+  ldens <- log(pi * dCopula(x, copC) + (1 - pi) * dCopula(x, copG))
+  if(any(is.infinite(ldens))){
+      ldens[which(is.infinite(ldens))] <- 0
   }
-  opt <- sum(ldens)
-  opt
+  sum(ldens)
 }
 ## Parameter bounds & initialisation
-lower <- c(copC@param.lowbnd, copG@param.lowbnd, 0)
-upper <- c(copC@param.upbnd, copG@param.upbnd, 1)
-par1 <- copula:::fitCopula.itau(copC, U)@estimate
-par2 <- copula:::fitCopula.itau(copG, U)@estimate
+lower <- c(copC@param.lowbnd, copG@param.lowbnd, 0.0)
+upper <- c(copC@param.upbnd, copG@param.upbnd, 1.0)
+par1 <- copula::fitCopula(copC, U, "itau")@estimate
+par2 <- copula::fitCopula(copG, U, "itau")@estimate
 par3 <- 0.5
 ## Optimisation
 opt <- optim(c(par1, par2, par3), LLCG, x = U, copC = copC,

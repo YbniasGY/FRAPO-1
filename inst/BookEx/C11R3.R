@@ -1,5 +1,5 @@
 library(FRAPO)
-library(nacopula)
+library(copula)
 ## S&P 500 
 data(INDTRACK6)
 ## Market and Asset Returns
@@ -10,7 +10,7 @@ RA <- returnseries(INDTRACK6[1:260, -1], method = "discrete",
 Beta <- apply(RA, 2, function(x) cov(x, RM) / var(RM))
 Tau <- apply(RA, 2, function(x) cor(x, RM, method = "kendall"))
 ## Clayton Copula: Lower Tail Dependence 
-ThetaC <- copClayton@tauInv(Tau)
+ThetaC <- copClayton@iTau(Tau)
 LambdaL <- copClayton@lambdaL(ThetaC)
 ## Selecting Stocks below median; inverse log-weighted and scaled
 IdxBeta <- Beta < median(Beta)

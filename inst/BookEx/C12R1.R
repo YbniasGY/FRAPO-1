@@ -11,7 +11,7 @@ gmv <-  pspec
 cvar <- pspec
 setType(cvar) <- "CVaR"
 setAlpha(cvar) <- 0.1
-setSolver(cvar) <- "solveRglpk"
+setSolver(cvar) <- "solveRglpk.CVAR"
 ## Conducting back-test
 end <- time(StockReturn)[60:239]
 from <- time(StockReturn)[1:length(end)]

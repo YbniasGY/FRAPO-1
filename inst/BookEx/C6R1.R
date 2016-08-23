@@ -1,6 +1,6 @@
 library(ghyp)
 library(timeSeries)
-library(fEcofin)
+library(fBasics)
 ## Return calculation
 data(DowJones30)
 y <- timeSeries(DowJones30[, "HWP"], charvec =

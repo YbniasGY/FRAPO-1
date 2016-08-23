@@ -5,10 +5,10 @@ EW <- timeSeries(cumprod(EwRetfac), epoints)
 ## Plot of portfolio wealth
 ylims <- range(cbind(LO, EW))
 plot(LO, ylim = ylims, xlab = "", ylab = "Index")
-lines(EW, col = "grey", lty = 2)
+lines(EW, col = "blue", lty = 2)
 legend("topleft",
        legend = c("TAA long-only", "EW long-only"),
-       lty = 1:2, col = c("black", "grey"))
+       lty = 1:2, col = c("black", "blue"))
 ## Portfolio analytics
 library(PerformanceAnalytics)
 ## Portfolio returns

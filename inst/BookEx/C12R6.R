@@ -22,8 +22,8 @@ CDRet <- returns(CDPort, method = "discrete", percentage = FALSE,
 table.Drawdowns(MVRet)
 table.Drawdowns(CDRet)
 ## Plot of draw down curves
-MVD <- 100 * Drawdowns(MVRet)
-CDD <- 100 * Drawdowns(CDRet)
+MVD <- 100 * PerformanceAnalytics:::Drawdowns(MVRet)
+CDD <- 100 * PerformanceAnalytics:::Drawdowns(CDRet)
 plot(CDD, main = "", ylab = "Percentages", xlab = "",
      ylim = c(min(c(MVD, CDD)), 0))
 lines(MVD, col = "darkgrey")

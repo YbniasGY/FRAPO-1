@@ -1,5 +1,5 @@
 ## Loading of packages
-library(fEcofin)
+library(fBasics)
 library(fExtremes)
 ## Data handling
 data(DowJones30)
